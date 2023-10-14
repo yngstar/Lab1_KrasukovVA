@@ -17,7 +17,7 @@ Visual Studio или другая IDE для C# (по желанию).
 
 2.Установка:
 
-1) Клонируйте репозиторий на свой компьютер (git clone https://github.com/yngstar/Lab1_KrasukovVA.git)
+1) Клонируйте репозиторий на свой компьютер (Download https://github.com/yngstar/Lab1_KrasukovVA/releases )
 2) Откройте проект в вашей IDE (например, Visual Studio).
 3) Соберите и запустите проект.
 
