@@ -1,13 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Serilog;
 
-class Program
+ public class Program
 {
-    static bool RegisterUser(string login, string password, string confirmPassword, out string message)
+     public static bool RegisterUser(string login, string password, string confirmPassword, out string message)
     {
-        message = "";
 
         Log.Information("Регистрация пользователя с логином: {Login}", login);
 
@@ -30,7 +29,7 @@ class Program
         return true;
     }
 
-    static bool IsValidLogin(string input, out string message)
+    public static bool IsValidLogin(string input, out string message)
     {
         message = "";
 
@@ -53,16 +52,28 @@ class Program
             return false;
         }
 
-        if (!IsValidPhone(input) && !IsValidEmail(input) && !IsValidStringLogin(input))
+        if (!IsValidPhone(input))
         {
-            message = "Логин должен быть в формате телефона, email или строки символов.";
+            message = "Телефон указан в недопустимом формате.";
+            return false;
+        }
+
+        if (!IsValidEmail(input))
+        {
+            message = "Email указан в недопустимом формате.";
+            return false;
+        }
+
+        if (!IsValidStringLogin(input))
+        {
+            message = "Логин должен быть в формате строки символов.";
             return false;
         }
 
         return true;
     }
 
-    static bool IsValidPhone(string input)
+    public static bool IsValidPhone(string input)
     {
         string pattern = @"^\+\d{1,3}-\d{3}-\d{3}-\d{4}$";
         return Regex.IsMatch(input, pattern);
@@ -80,17 +91,17 @@ class Program
         return Regex.IsMatch(input, pattern);
     }
 
-    static bool IsValidPassword(string input, out string message)
+    public static bool IsValidPassword(string input, out string message)
     {
         message = "";
 
-        if (input.Length <= 7)
+        if (input.Length < 7)
         {
             message = "Пароль должен содержать минимум 7 символов.";
             return false;
         }
 
-        string pattern = @"^(?=.*[a-zа-я])(?=.*[A-ZА-Я])(?=.*\d)(?=.*[@#$%^&+=]).{7,}$";
+        string pattern = @"^(?=.*[а-я])(?=.*[А-Я])(?=.*\d)(?=.*[@#$%^&+=]).{7,}$";
         if (!Regex.IsMatch(input, pattern))
         {
             message = "Пароль не соответствует требованиям (минимум одна буква в верхнем и нижнем регистре, одна цифра и один спецсимвол).";
@@ -121,7 +132,6 @@ class Program
 
         string message;
         bool result = RegisterUser(login, password, confirmPassword, out message);
-
         if (result)
         {
             Log.Information("Регистрация успешна для логина: {Login}", login);
