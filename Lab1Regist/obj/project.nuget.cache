@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "4usHr+IVb5i+fO4Y2nh6iU9/Rx4GuxHvkNvrRk2KQ4Yqzt0WjJz2NqDsGPdVUvBcd5d4nR9J2uehtm6j+tYVag==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Me\\source\\repos\\Lab1Regist\\Lab1Regist\\Lab1Regist.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Me\\.nuget\\packages\\serilog\\3.0.1\\serilog.3.0.1.nupkg.sha512",
+    "C:\\Users\\Me\\.nuget\\packages\\serilog.sinks.console\\4.1.0\\serilog.sinks.console.4.1.0.nupkg.sha512",
+    "C:\\Users\\Me\\.nuget\\packages\\serilog.sinks.file\\5.0.0\\serilog.sinks.file.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
